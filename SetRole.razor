@@ -1,0 +1,49 @@
+﻿@page "/setrole"
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor _httpContextAccessor
+
+@using System.Net
+@using System.Net.Http.Json
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Logging
+<section class="categories-area section-padding0">
+    <div class="container">
+        <div class="row">
+            <section class="services-area  services-padding50">
+                <div class="container">
+                    <EditForm Model="@FRole" OnValidSubmit="SubmitSetRole">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+                        <div class="row col-sm-12">
+                            <div class="col-sm-6">
+                                <InputSelect @bind-Value="FRole.Role">
+                                    <option value=""></option>
+                                    <option value="@((int)DataBase.Models.Roles.Student)">@DataBase.Models.Roles.Student.ToString()</option>
+                                    <option value="@((int)DataBase.Models.Roles.Instructor)">@DataBase.Models.Roles.Instructor.ToString()</option>
+                                </InputSelect>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="submit" class="btn btn-success">Submit</button>
+
+                            </div>
+
+                        </div>
+                    </EditForm>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+@code{
+    private DataBase.ViewModel.SetRole FRole = new DataBase.ViewModel.SetRole();
+
+    public async Task SubmitSetRole(EditContext editContext)
+    {
+        DataBase.ViewModel.SetRole Role=(DataBase.ViewModel.SetRole)editContext.Model;
+        Role.Id = _httpContextAccessor.HttpContext.User.Identity.Name;
+        var response = await Http.PostAsJsonAsync<DataBase.ViewModel.SetRole>(
+            "/api/Bus/SetRole",Role);
+        NavigationManager.NavigateTo("/",true);
+    }
+}

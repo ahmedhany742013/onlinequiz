@@ -1,0 +1,102 @@
+﻿@page "/"
+<!-- slider Area Start-->
+<div class="slider-area ">
+    <div class="slider-active">
+        <!-- Single Slider -->
+        <div class="single-slider slider-height d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-8">
+                        <div class="hero__caption">
+                            <span data-animation="fadeInUp" data-delay=".4s">Get Every Single Solutions.</span>
+                            <h1 data-animation="fadeInUp" data-delay=".6s">Design Your Test</h1>
+                            <p data-animation="fadeInUp" data-delay=".8s">jhorem rfpsum golor sidt amet, consectetur adipiscing elit, eiusmod tempor incididunt utcjhg labore bet dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                            <!-- Hero-btn -->
+                            <div class="hero__btn">
+                                <a href="industries.html" class="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s">Design A Quiz</a>
+                                <a href="industries.html" class="btn border-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">Take A Quiz</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single Slider -->
+        <div class="single-slider slider-height d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-8">
+                        <div class="hero__caption">
+                            <!--<span data-animation="fadeInUp" data-delay=".4s">Get Every Single Solutions.</span>-->
+                            <h1 data-animation="fadeInUp" data-delay=".6s">Design Your Test</h1>
+                            <p data-animation="fadeInUp" data-delay=".8s">jhorem rfpsum golor sidt amet, consectetur adipiscing elit, eiusmod tempor incididunt utcjhg labore bet dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                            <!-- Hero-btn -->
+                            <div class="hero__btn">
+                                <a href="industries.html" class="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s">Design A Quiz</a>
+                                <a href="industries.html" class="btn border-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">Take A Quiz </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
+<!-- slider Area End-->
+<!-- Categories Area Start -->
+<section class="categories-area section-padding3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- Section Tittle -->
+                <div class="section-tittle mb-70">
+                    <h2>What Services you will Get from us!</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-cat text-center mb-50">
+                    <div class="cat-icon">
+                        <span class="flaticon-pen"></span>
+                    </div>
+                    <div class="cat-cap">
+                        <h5><a href="#">Test As You Design</a></h5>
+                        <p>MCQ-True or False-A vocabulary answer-An essay </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-cat text-center mb-50">
+                    <div class="cat-icon">
+                        <span class="flaticon-speaker"></span>
+                    </div>
+                    <div class="cat-cap">
+                        <h5><a href="#">Group Mangment</a></h5>
+                        <p>You Can Mange Your Group And Invite any one </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-cat text-center mb-50">
+                    <div class="cat-icon">
+                        <span class="flaticon-portfolio"></span>
+                    </div>
+                    <div class="cat-cap">
+                        <h5><a href="services.html">Instant Result</a></h5>
+                        <p>You Can Mange Your Student Results</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Categories Area End -->
+
+@inject IJSRuntime JSRuntime
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeVoidAsync("Slider");
+    }
+}

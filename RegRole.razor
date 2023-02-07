@@ -1,0 +1,45 @@
+﻿@page "/RegRole"
+<section class="categories-area section-padding4">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- Section Tittle -->
+                <div class="section-tittle mb-70">
+                    <h2>Choose Your Role</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6" @onclick="@(()=> RedirectBtn($"/Identity/Account/Register?Role={DataBase.Models.Roles.Instructor.ToString()}",true))">
+                <div class="single-cat text-center mb-50">
+                    <div class="cat-icon">
+                        <span class="flaticon-speaker"></span>
+                    </div>
+                    <div class="cat-cap">
+                        <h5><a href="/Identity/Account/Register?Role=@DataBase.Models.Roles.Instructor.ToString()">Instructor</a></h5>
+                        <p>You Can Create Exames And Send It To Your Students</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6" @onclick="@(()=> RedirectBtn($"/Identity/Account/Register?Role={DataBase.Models.Roles.Student.ToString()}",true))">
+                <div class="single-cat text-center mb-50">
+                    <div class="cat-icon">
+                        <span class="flaticon-pen"></span>
+                    </div>
+                    <div class="cat-cap">
+                        <h5><a href="/Identity/Account/Register?Role=@DataBase.Models.Roles.Student.ToString()">Students</a></h5>
+                        <p>You Can Take Instructor Exam And Get Instant Result </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@inject NavigationManager NavigationManager
+
+@code{
+    private void RedirectBtn(string url, bool Reload = true)
+    {
+        NavigationManager.NavigateTo(url, Reload);
+    }
+}
